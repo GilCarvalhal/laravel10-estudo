@@ -1,16 +1,23 @@
 <h3>Fornecedor</h3>
 
 @php
-
+    // if(!<condicao>) {} // Enquanto executa se o retorno for true
 @endphp
 
-{{-- Na sintaxe do blade não utilizamos o ";" para encerrar os comandos. --}}
-{{-- @dd($fornecedores) --}}
+{{-- @unless executa se o retorno for false --}}
 
-@if (count($fornecedores) > 0 && count($fornecedores) < 10)
-    <h3>Existem fornecedores cadastrados.</h3>
-@elseif (count($fornecedores) > 10)
-    <h3>Existem vários fornecedores cadastrados.</h3>
-@else
-    <h3>Ainda não existem fornecedores cadastrados.</h3>
+Fornecedor: {{ $fornecedores[0]['nome'] }}
+<br />
+Status: {{ $fornecedores[0]['status'] }}
+<br />
+@if ($fornecedores[0]['status'] != 'S')
+    Fornecedor inativo!
 @endif
+
+<br />
+<br />
+
+{{-- Executa se o retorno da condição for false --}}
+@unless ($fornecedores[0]['status'] == 'S')
+    Fornecedor inativo!
+@endunless
