@@ -34,6 +34,9 @@ class FornecedorController extends Controller
                 'telefone' => '0000-0000'
             ]
         ];
+
+        $fornecedores = [];
+
         return view('app.fornecedor.index', compact('fornecedores'));
     }
 }
