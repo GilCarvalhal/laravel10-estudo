@@ -19,11 +19,10 @@
     <br />
     Status: {{ $fornecedores[1]['status'] }}
     <br />
-    @isset($fornecedores[1]['cnpj'])
-        CNPJ: {{ $fornecedores[1]['cnpj'] }}
-    @endisset
+    {{-- operador condicional de valor default (??) --}}
+    CNPJ: {{ $fornecedores[1]['cnpj'] ?? 'Dado não foi preenchido ' }}
+    <br />
+    {{-- $variável testada não estiver definida (isset)
+        ou
+        $variável testada possuir o valor null --}}
 @endisset
-@empty($fornecedores[1]['cnpj'])
-    - Vazio
-@endempty
-<br />
