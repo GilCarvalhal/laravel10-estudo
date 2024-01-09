@@ -1,7 +1,17 @@
 <h3>Fornecedor</h3>
 
 @php
-    // if(isset($variavel)) {} // Retornar true se a variável estiver definida.
+    // if(empty($variavel)) {} // Retornar true se a variável estiver vazia.
+    /* Ex:
+    ''
+    0
+    0.0
+    '0'
+    null
+    false
+    array()
+    $var
+    */
 @endphp
 
 @isset($fornecedores)
@@ -11,6 +21,9 @@
     <br />
     @isset($fornecedores[1]['cnpj'])
         CNPJ: {{ $fornecedores[1]['cnpj'] }}
-        <br />
     @endisset
 @endisset
+@empty($fornecedores[1]['cnpj'])
+    - Vazio
+@endempty
+<br />
