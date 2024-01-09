@@ -15,30 +15,16 @@
 @endphp
 
 @isset($fornecedores)
-    Fornecedor: {{ $fornecedores[1]['nome'] }}
-    <br />
-    Status: {{ $fornecedores[1]['status'] }}
-    <br />
-    {{-- operador condicional de valor default (??) --}}
-    CNPJ: {{ $fornecedores[1]['cnpj'] ?? 'Dado não foi preenchido ' }}
-    <br />
-    Telefone: ({{ $fornecedores[1]['ddd'] ?? '' }} {{ $fornecedores[1]['telefone'] ?? '' }})
-    @switch($fornecedores[1]['ddd'])
-        @case('11')
-            São Paulo - SP
-        @break
-
-        @case('32')
-            Juiz de Fora - MG
-        @break
-
-        @case('85')
-            Fortaleza - CE
-        @break
-
-        Estado não identificado.
-
-        @default
-    @endswitch
-    <br />
+    @for ($i = 0; isset($fornecedores[$i]); $i++)
+        Fornecedor: {{ $fornecedores[$i]['nome'] }}
+        <br />
+        Status: {{ $fornecedores[$i]['status'] }}
+        <br />
+        {{-- operador condicional de valor default (??) --}}
+        CNPJ: {{ $fornecedores[$i]['cnpj'] ?? 'Dado não foi preenchido ' }}
+        <br />
+        Telefone: ({{ $fornecedores[$i]['ddd'] ?? '' }} {{ $fornecedores[$i]['telefone'] ?? '' }})
+        <hr>
+        <br />
+    @endfor
 @endisset
