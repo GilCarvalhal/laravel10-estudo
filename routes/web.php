@@ -19,6 +19,7 @@ use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\TesteController;
 
 Route::get('/contato', [ContatoController::class, 'contato'])->name('site.contato');
+Route::post('/contato', [ContatoController::class, 'contato'])->name('site.contato');
 // Nome, categoria, assunto, mensagem.
 
 
